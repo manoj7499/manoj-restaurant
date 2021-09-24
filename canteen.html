@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var restaurantArray = new Array("Junction", "Grill", "Grand", "Spice","Club", "Plaza", "Royal", "Bistro");
+var bgimage = new Array("url('rest.jpg')", "url('rest1.jpg')",
+"url('rest2.jpg')", "url('rest3.jpg')", "url('rest4.jpg')",
+"url('rest5.jpg')", "url('rest6.jpg')", "url('rest7.jpg')");
+var table_color = new Array("#8acc5e", "#c7565f", "#5360ad", "#a5a16e", "#d49645", "#ca6a9f", "Yellow", "#9a9aac");
+var restaurantNo = 0;
+var count = restaurantArray.length;
+var menu = new Array(count);
+var priceArray = new Array(count);
+for (var j = 0; j < count; j++) {
+    menu[j] = new Array(8);
+}
+for (var w = 0; w < count; w++) {
+    priceArray[w] = new Array(8);
+}
+function load() {
+	document.body.style.backgroundImage = bgimage[restaurantNo];
+	document.getElementById("mytable").style.background = table_color[restaurantNo];
+	document.getElementById("restaurant").innerHTML = restaurantArray[restaurantNo];
+    document.getElementById("item1").innerHTML = menu[restaurantNo][0];
+    document.getElementById("item2").innerHTML = menu[restaurantNo][1];
+    document.getElementById("item3").innerHTML = menu[restaurantNo][2];
+    document.getElementById("item4").innerHTML = menu[restaurantNo][3];
+    document.getElementById("item5").innerHTML = menu[restaurantNo][4];
+    document.getElementById("item6").innerHTML = menu[restaurantNo][5];
+    document.getElementById("item7").innerHTML = menu[restaurantNo][6];
+    document.getElementById("item8").innerHTML = menu[restaurantNo][7];
+
+    document.getElementById("item1price").innerHTML = priceArray[restaurantNo][0];
+    document.getElementById("item2price").innerHTML = priceArray[restaurantNo][1];
+    document.getElementById("item3price").innerHTML = priceArray[restaurantNo][2];
+    document.getElementById("item4price").innerHTML = priceArray[restaurantNo][3];
+    document.getElementById("item5price").innerHTML = priceArray[restaurantNo][4];
+    document.getElementById("item6price").innerHTML = priceArray[restaurantNo][5];
+    document.getElementById("item7price").innerHTML = priceArray[restaurantNo][6];
+    document.getElementById("item8price").innerHTML = priceArray[restaurantNo][7];
+
+}
+function clear_data() {
+     document.getElementById("frmRestaurant").reset();
+	 billAmount = 0
+	 document.getElementById("billAmount").innerHTML = billAmount;
+}
+function next() {
+	restaurantNo++;
+    if (restaurantNo == count) {
+    	restaurantNo==count;
+        return;
+    }
+    clear_data();
+	load();
+}
+function previous() {
+	restaurantNo--;
+    if (restaurantNo<0) {
+    	restaurantNo=0;
+        return;
+    }
+	clear_data();
+    load();
+}
+var billAmount = 0;
+var isSelected = 0;
+var gVal = 0;
+function getPrice1() {
+    var num1 = Number(document.getElementById("item1price").textContent);
+    gVal = num1;
+	if (frmRestaurant.chkItem1.checked == true) {
+        isSelected = 1;
+        var hj=frmRestaurant.quantity1.value;
+        console.log(hj);
+        billAmount += num1*hj;
+    } else {
+    
+            billAmount = billAmount - gVal;
+           
+            isSelected = 0;
+            gVal = 0;
+       
+    }
+ 
+   
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+function getPrice2() {
+    var num1 = Number(document.getElementById("item2price").textContent);
+    gVal = num1;
+	if (frmRestaurant.chkItem2.checked == true) {
+        isSelected = 1;
+        var hj=frmRestaurant.quantity2.value;
+        console.log(hj);
+        billAmount += num1*hj;
+       
+    } else {
+       
+            billAmount = billAmount - gVal;
+           
+            isSelected = 0;
+            gVal = 0;
+        
+    }
+    
+
+   document.getElementById("billAmount").innerHTML = billAmount;
+}
+function getPrice3() {
+	var num1 = Number(document.getElementById("item3price").textContent);
+	gVal = num1;
+     if (frmRestaurant.chkItem3.checked == true) {
+        isSelected = 1;
+   
+        var hj=frmRestaurant.quantity3.value;
+        console.log(hj);
+        billAmount += num1*hj;
+	} else {
+       
+            billAmount = billAmount - gVal;
+           
+            isSelected = 0;
+            gVal = 0;
+        
+    }
+   
+   
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+
+
+function getPrice4() {
+	var num1 = Number(document.getElementById("item4price").textContent);
+	gVal = num1;
+    if (frmRestaurant.chkItem4.checked == true) {
+        isSelected = 1;
+    
+        var hj=frmRestaurant.quantity4.value;
+        console.log(hj);
+        billAmount += num1*hj;
+	} else {
+        
+            billAmount = billAmount - gVal;
+            
+            isSelected = 0;
+            gVal = 0;
+       
+    }
+   
+   
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+
+
+function getPrice5() {
+	var num1 = Number(document.getElementById("item5price").textContent);
+	gVal = num1;
+    if (frmRestaurant.chkItem5.checked == true) {
+        isSelected = 1;
+   
+        var hj=frmRestaurant.quantity5.value;
+        console.log(hj);
+        billAmount += num1*hj;
+	 } else {
+        
+            billAmount = billAmount - gVal;
+            
+            isSelected = 0;
+            gVal = 0;
+        
+    }
+    
+   
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+
+
+function getPrice6() {
+var num1 = Number(document.getElementById("item6price").textContent);
+gVal = num1;
+    if (frmRestaurant.chkItem6.checked == true) {
+        isSelected = 1;
+    
+        var hj=frmRestaurant.quantity6.value;
+        console.log(hj);
+        billAmount += num1*hj;
+	 } else {
+        
+            billAmount = billAmount - gVal;
+           
+            isSelected = 0;
+            gVal = 0;
+       
+    }
+    
+   
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+
+function getPrice7() {
+   var num1 = Number(document.getElementById("item7price").textContent);
+   gVal = num1;
+   if (frmRestaurant.chkItem7.checked == true) {
+    isSelected = 1;
+   
+    var hj=frmRestaurant.quantity7.value;
+    console.log(hj);
+    billAmount += num1*hj;
+	 } else {
+       
+            billAmount = billAmount - gVal;
+          
+            isSelected = 0;
+            gVal = 0;
+        
+    }
+   
+   
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+function getPrice8() {
+	var num1 = Number(document.getElementById("item8price").textContent);     
+	gVal = num1;			
+	if (frmRestaurant.chkItem8.checked == true) {
+       isSelected = 1;
+       var hj=frmRestaurant.quantity8.value;
+       console.log(hj);
+       billAmount += num1*hj;
+	} else {
+	
+            billAmount = billAmount - gVal;
+            
+            isSelected = 0;
+            gVal = 0;
+        
+    }
+    document.getElementById("billAmount").innerHTML = billAmount;
+}
+
+menu[0][0] = "gongura pachadi";
+menu[0][1] = "natu kodi pulusu";
+menu[0][2] = "gonguro mutton";
+menu[0][3] = "akura pappu";
+menu[0][4] = "pulihora";
+menu[0][5] = "pesarattu";
+menu[0][6] = "simple noodle";
+menu[0][7] = "veg noodles";
+
+menu[1][0] = "aathretapuram pootharekulu";
+menu[1][1] = "kathipudi karakajjam";
+menu[1][2] = "mamidada maamidi taandra";
+menu[1][3] = "tomato pappu";
+menu[1][4] = "Pesarattu";
+menu[1][5] = "large Dosa";
+menu[1][6] = "Ghee Karam Dosa";
+menu[1][7] = "Corn Dosa";
+
+menu[2][0] = "veg Puri Bhaji";
+menu[2][1] = "large Aloo Parantha";
+menu[2][2] = "hot Idli";
+menu[2][3] = "half Medu Wada";
+menu[2][4] = "simle Sada Dosa";
+menu[2][5] = "large Masala Dosa";
+menu[2][6] = "Uttappam";
+menu[2][7] = "Onion Masala Dosa";
+
+menu[3][0] = "DosaSpecial Banjara Paneer Kebab";
+menu[3][1] = "Tandoori Paneer Tikka";
+menu[3][2] = "Pahadi Paneer Tikka";
+menu[3][3] = "Atishi Tandoori Aloo";
+menu[3][4] = "Veg.Seekh Kebab";
+menu[3][5] = "Kurkure Bhindi";
+menu[3][6] = "Tandoori Corn";
+menu[3][7] = "Paneer Malai Tikka";
+
+menu[4][0] = "Chacolate blend";
+menu[4][1] = "Strawberry milkshake";
+menu[4][2] = "Chacolate";
+menu[4][3] = "Mixed berry";
+menu[4][4] = "Mango";
+menu[4][5] = "Banana";
+menu[4][6] = "Butterscotch";
+menu[4][7] = "Almond milkshake";
+
+menu[5][0] = "Tomatto Soup";
+menu[5][1] = "Vegetable Soup";
+menu[5][2] = "Palak Cheese Soup";
+menu[5][3] = "Sweet Corn Soup";
+menu[5][4] = "Manchow Soup";
+menu[5][5] = "Wonton Soup";
+menu[5][6] = "French Onion Soup";
+menu[5][7] = "Lung Fung Soup";
+
+menu[6][0] = "Butterscotch icecream";
+menu[6][1] = "Veneela icecream";
+menu[6][2] = "Gudbud icecream";
+menu[6][3] = "Kulfi icecream";
+menu[6][4] = "Cone icecream";
+menu[6][5] = "Strawberry icecream";
+menu[6][6] = "Mint icecream";
+menu[6][7] = "Fruit icecream";
+
+menu[7][0] = "Paneer Butter Masala";
+menu[7][1] = "Paneer Tikka Masala";
+menu[7][2] = "Paneer Chips Masala";
+menu[7][3] = "Mutter Paneer";
+menu[7][4] = "Palak Paneer";
+menu[7][5] = "Shahi Paneer";
+menu[7][6] = "Paneer Kadai";
+menu[7][7] = "Paneer Bhurji";
+
+
+priceArray[0][0] = 80;
+priceArray[0][1] = 60;
+priceArray[0][2] = 100;
+priceArray[0][3] = 200;
+priceArray[0][4] = 300;
+priceArray[0][5] = 150;
+priceArray[0][5] = 130;
+priceArray[0][6] = 70;
+priceArray[0][7] = 60;
+
+priceArray[1][0] = 180;
+priceArray[1][1] = 140;
+priceArray[1][2] = 90;
+priceArray[1][3] = 80;
+priceArray[1][4] = 150;
+priceArray[1][5] = 170;
+priceArray[1][5] = 100;
+priceArray[1][6] = 200;
+priceArray[1][7] = 250;
+
+priceArray[2][0] = 260;
+priceArray[2][1] = 370;
+priceArray[2][2] = 60;
+priceArray[2][3] = 70;
+priceArray[2][4] = 80;
+priceArray[2][5] = 90;
+priceArray[2][5] = 140;
+priceArray[2][6] = 180;
+priceArray[2][7] = 250;
+
+priceArray[3][0] = 100;
+priceArray[3][1] = 180;
+priceArray[3][2] = 170;
+priceArray[3][3] = 130;
+priceArray[3][4] = 60;
+priceArray[3][5] = 90;
+priceArray[3][5] = 390;
+priceArray[3][6] = 200;
+priceArray[3][7] = 280;
+
+priceArray[4][0] = 190;
+priceArray[4][1] = 299;
+priceArray[4][2] = 875;
+priceArray[4][3] = 250;
+priceArray[4][4] = 500;
+priceArray[4][5] = 879;
+priceArray[4][5] = 250;
+priceArray[4][6] = 200;
+priceArray[4][7] = 380;
+
+priceArray[5][0] = 65;
+priceArray[5][1] = 60;
+priceArray[5][2] = 70;
+priceArray[5][3] = 80;
+priceArray[5][4] = 90;
+priceArray[5][5] = 60;
+priceArray[5][5] = 100;
+priceArray[5][6] = 70;
+priceArray[5][7] = 80;
+
+priceArray[6][0] = 300;
+priceArray[6][1] = 190;
+priceArray[6][2] = 300;
+priceArray[6][3] = 190;
+priceArray[6][4] = 290;
+priceArray[6][5] = 300;
+priceArray[6][5] = 290;
+priceArray[6][6] = 295;
+priceArray[6][7] = 320;
+
+priceArray[7][0] = 190;
+priceArray[7][1] = 180;
+priceArray[7][2] = 195;
+priceArray[7][3] = 190;
+priceArray[7][4] = 185;
+priceArray[7][5] = 190;
+priceArray[7][5] = 195;
+priceArray[7][6] = 200;
+priceArray[7][7] = 210;
+
+</script>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body onload="load()">
+<center>
+   <form name="frmRestaurant" id="frmRestaurant"> 
+	<h1 id="restaurant" class="myhotelClass">restaurant</h1>
+ <table border="3" id="mytable" align="center">
+        <tbody><tr>
+            <th>Menu List</th>
+			<th>Price</th>
+			<th>Select</th>
+			<th>quantity</th>
+        </tr>
+        <tr>
+            <th><p id="item1">1st menu</p> </th>
+            <td><p id="item1price">1st price</p> </td>
+			<td>
+                <input type="checkbox" name="chkItem1" id="chkItem1" >
+            </td>
+             <td>
+            <input type="number" name="quantity1" id="quantity" onblur="getPrice1()">
+            </td>
+        </tr>
+        <tr>
+        
+            <th><p id="item2">2nd menu</p> </th>
+            <td><p id="item2price">2nd price</p> </td>
+			<td>
+                <input type="checkbox" name="chkItem2" id="chkItem2" >
+            </td>
+                        <td>
+            <input type="number" name="quantity2" id="quantity" onblur="getPrice2()" >
+            </td>
+            
+        </tr>
+        <tr>
+            <th><p id="item3">3rd menu</p> </th>
+            <td><p id="item3price">3rd price</p> </td>
+            <td>
+                <input type="checkbox" name="chkItem3" id="chkItem3" >
+            </td>
+                        <td>
+            <input type="number" name="quantity3" id="quantity" onblur="getPrice3()" >
+            </td>
+            
+        </tr>
+        <tr>
+            <th><p id="item4">4th menu</p> </th>
+            <td><p id="item4price">4th price</p> </td>
+            <td>
+                <input type="checkbox" name="chkItem4" id="chkItem4" >
+            </td>
+                        <td>
+            <input type="number" name="quantity4" id="quantity" onblur="getPrice4()">
+            </td>
+            
+        </tr>
+        <tr>
+            <th><p id="item5">5th menu</p> </th>
+            <td><p id="item5price">5th price</p> </td>
+            <td>
+                <input type="checkbox" name="chkItem5" id="chkItem5" >
+            </td>
+                        <td>
+            <input type="number" name="quantity5" id="quantity" onblur="getPrice5()">
+            </td>
+            
+        </tr>
+        <tr>
+            <th><p id="item6">6th menu</p> </th>
+            <td><p id="item6price">6th price</p> </td>
+            <td>
+                <input type="checkbox" name="chkItem6" id="chkItem6" >
+            </td>
+                        <td>
+            <input type="number" name="quantity6" id="quantity" onblur="getPrice6()">
+            </td>
+            
+        </tr>
+        <tr>
+            <th><p id="item7">7th menu</p> </th>
+            <td><p id="item7price">7th price</p> </td>
+            <td>
+                <input type="checkbox" name="chkItem7" id="chkItem7" >
+            </td>
+            <td>
+            <input type="number" name="quantity7" id="quantity" onblur="getPrice1()">
+            </td>
+        </tr>
+        
+        <tr>
+            <th><p id="item8">8th menu</p> </th>
+            <td><p id="item8price">8th price</p> </td>
+            <td>
+                <input type="checkbox" name="chkItem8" id="chkItem8" >
+            </td>
+                        <td>
+            <input type="number" name="quantity8" id="quantity" onblur="getPrice8()">
+            </td>
+            
+        </tr>
+  </tbody></table>
+	<br>
+    <input type="button" value="Next" onclick="next()"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="Previous" onclick="previous()"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<h1 class="textClass" style="color:blue;">Total Bill to be Paid :</h1>
+	<h1 class="textClass" id="billAmount" >0</h1></form></center>
+    </tbody></table>
+    
+</body>
+
+</html></html>
